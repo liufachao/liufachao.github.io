@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>第一次 | Up1set&#39;s Blog</title>
+    <title> | Up1set&#39;s Blog</title>
     <meta name="author" content="Up1set" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -167,7 +167,7 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>第一次</h1>
+        <h1></h1>
     </div>
     <div class="info">
         <span class="date">
@@ -181,7 +181,68 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     </div>
     
     <div class="content" v-pre>
-        
+        <h1 id="域名收集方法"><a href="#域名收集方法" class="headerlink" title="域名收集方法"></a>域名收集方法</h1><h2 id="域名概念"><a href="#域名概念" class="headerlink" title="域名概念"></a>域名概念</h2><ul>
+<li>将IP地址映射成域名 </li>
+<li>.com	顶级域名或一级域名 </li>
+<li>baidu.com	二级域名，也是.com的子域名 </li>
+<li>mail.baidu.com	三级域名，也是baidu.com的子域名</li>
+</ul>
+<h2 id="证书透明度（CT）"><a href="#证书透明度（CT）" class="headerlink" title="证书透明度（CT）"></a>证书透明度（CT）</h2><ul>
+<li>所有人可见，不可篡改</li>
+</ul>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://crt.sh/">https://crt.sh/</a></li>
+<li><a target="_blank" rel="noopener" href="https://sslmate.com/ct_search_api/">https://sslmate.com/ct_search_api&#x2F;</a></li>
+</ol>
+<h2 id="dns"><a href="#dns" class="headerlink" title="dns"></a>dns</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://searchdns.netcraft.com/">https://searchdns.netcraft.com/</a></li>
+</ul>
+<h2 id="威胁情报"><a href="#威胁情报" class="headerlink" title="威胁情报"></a>威胁情报</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://x.threatbook.com/">https://x.threatbook.com/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.threatminer.org/index.php">https://www.threatminer.org/index.php</a></li>
+</ol>
+<h1 id="谷歌语法"><a href="#谷歌语法" class="headerlink" title="谷歌语法"></a>谷歌语法</h1><ol>
+<li>site:	在指定站点搜索</li>
+<li>inurl： 在固定url</li>
+<li>intitle：  标题带某字符的页面</li>
+<li>intext：  页面内容带某字符的页面</li>
+<li>filetype：  搜索固定后缀的文件</li>
+<li>-加内容    排除所加内容</li>
+<li>“  ”    引号内关键字不拆分搜索</li>
+<li>寻找jenkins的管理面板   <a target="_blank" rel="noopener" href="http://www.google.com/search?q=inurl:8080%20intitle:%22Dashboard%20%5BJenkins%5D%22">inurl:8080</a><a target="_blank" rel="noopener" href="http://www.google.com/search?q=inurl:8080%20intitle:%22Dashboard%20%5BJenkins%5D%22">intitle:”Dashboard</a><a target="_blank" rel="noopener" href="http://www.google.com/search?q=inurl:8080%20intitle:%22Dashboard%20%5BJenkins%5D%22">[Jenkins]”</a></li>
+<li>寻找哪些主机安装了xampp   inurl:”xampp&#x2F;index” intext:”XAMPP for Windows “ </li>
+<li>寻找phpmyadmin不用验证或者弱口令管理页面</li>
+<li><a target="_blank" rel="noopener" href="https://www.exploit-db.com/google-hacking-database">https://www.exploit-db.com/google-hacking-database</a></li>
+</ol>
+<h1 id="fofa"><a href="#fofa" class="headerlink" title="fofa"></a>fofa</h1><ul>
+<li>title：从标题中找</li>
+<li>body：从正文中找</li>
+<li>domain：域名带某xxx的网站</li>
+<li>host：从url中找某网站</li>
+<li>port：找某端口对应的资产</li>
+<li>ip：顾名思义</li>
+<li>组合条件：&amp;&amp;</li>
+</ul>
+<h1 id="zoomeye"><a href="#zoomeye" class="headerlink" title="zoomeye"></a>zoomeye</h1><ul>
+<li>类似于fofa</li>
+<li>组合条件用+</li>
+</ul>
+<h1 id="github收集"><a href="#github收集" class="headerlink" title="github收集"></a>github收集</h1><p>直接搜关键字</p>
+<ul>
+<li>pass	密码</li>
+<li>smtp    邮箱</li>
+<li>公司内部域名（内网</li>
+</ul>
+<h1 id="子域名暴力破解"><a href="#子域名暴力破解" class="headerlink" title="子域名暴力破解"></a>子域名暴力破解</h1><ol>
+<li>自己创建字典，暴力ping</li>
+<li>OneForAll    <a target="_blank" rel="noopener" href="https://github.com/shmilylty/OneForAll">https://github.com/shmilylty/OneForAll</a></li>
+<li>通过js文件泄露   <a target="_blank" rel="noopener" href="https://github.com/Threezh1/JSFinder">https://github.com/Threezh1/JSFinder</a></li>
+<li>app抓包     因为爬虫无法爬取</li>
+</ol>
+<h1 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h1><ul>
+<li>nmap</li>
+</ul>
+
     </div>
     
     
