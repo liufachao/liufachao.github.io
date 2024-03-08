@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Archives | Up1set&#39;s Blog</title>
+    <title> | Up1set&#39;s Blog</title>
     <meta name="author" content="Up1set" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -31,6 +31,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -161,96 +165,51 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            
-<div id="archives">
-    
-    <div id="timeline-wrap" ref="timeline">
+            <div class="article">
+    <div>
+        <h1></h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/3/8
+        </span>
         
-        <div class="timeline" data-title="">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/3/8</div>
-                <a href="/2024/03/08/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
-                    <h3></h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/3/8</div>
-                <a href="/2024/03/08/%E6%B8%97%E9%80%8F/">
-                    <h3></h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/3/8</div>
-                <a href="/2024/03/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
-                    <h3></h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/3/8</div>
-                <a href="/2024/03/08/CTF/">
-                    <h3></h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/3/8</div>
-                <a href="/2024/03/08/IDA%E4%BD%BF%E7%94%A8/">
-                    <h3></h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/3/8</div>
-                <a href="/2024/03/08/upx%E8%84%B1%E5%A3%B3/">
-                    <h3></h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
         
     </div>
+    
+    <div class="content" v-pre>
+        <h1 id="网络通信"><a href="#网络通信" class="headerlink" title="网络通信"></a>网络通信</h1><p>概念：两台设备之间通过网络完成传输</p>
+<p>网络通信：将数据通过网络从一台设备到另一台设备</p>
+<h4 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h4><p>根据覆盖范围的不同分为三种：</p>
+<p>广域网&gt;城域网&gt;局域网</p>
+<h1 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h1><p>计算机在网络中的地址</p>
+<h4 id="查看ip的方法"><a href="#查看ip的方法" class="headerlink" title="查看ip的方法"></a>查看ip的方法</h4><p>Windows:win+R启动运行，输入cmd打开命令提示符，输入ipconfig</p>
+<p>Linux：打开终端，输入ifconfig或者ip addr</p>
+<h4 id="IP地址的表达形式"><a href="#IP地址的表达形式" class="headerlink" title="IP地址的表达形式"></a>IP地址的表达形式</h4><p>点分十进制，x.x.x.x</p>
+<p>十进制的范围是0~255（四个字节【32位】）</p>
+<h4 id="IP地址的组成"><a href="#IP地址的组成" class="headerlink" title="IP地址的组成"></a>IP地址的组成</h4><p>网络地址+主机地址</p>
+<h4 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h4><p>分为五大类：A、B、C、D、E五类</p>
+<p><img src="C:\Users\liumou\AppData\Roaming\Typora\typora-user-images\image-20230708175021608.png" alt="image-20230708175021608"  /><img src="C:\Users\liumou\AppData\Roaming\Typora\typora-user-images\image-20230708175121070.png" alt="image-20230708175121070"  /></p>
+<h1 id="计算机网络基本概念"><a href="#计算机网络基本概念" class="headerlink" title="计算机网络基本概念"></a>计算机网络基本概念</h1><h1 id="TCP-IP协议栈"><a href="#TCP-IP协议栈" class="headerlink" title="TCP&#x2F;IP协议栈"></a>TCP&#x2F;IP协议栈</h1><h1 id="SI参考模型"><a href="#SI参考模型" class="headerlink" title="SI参考模型"></a>SI参考模型</h1><h1 id="局域网基本原理"><a href="#局域网基本原理" class="headerlink" title="局域网基本原理"></a>局域网基本原理</h1><h1 id="广域网基本原理"><a href="#广域网基本原理" class="headerlink" title="广域网基本原理"></a>广域网基本原理</h1><h1 id="TCP和UDP的基本原理"><a href="#TCP和UDP的基本原理" class="headerlink" title="TCP和UDP的基本原理"></a>TCP和UDP的基本原理</h1><h1 id="大数据的定义"><a href="#大数据的定义" class="headerlink" title="大数据的定义"></a>大数据的定义</h1><p>NIST提出大数据的特点：规模巨大、种类繁多、增长速度快、变化多样，需要一个可拓展体系结构来有效存储、处理和分析的广泛数据集组成。</p>
+<p>IBM则提出4V特性：强调数据的数量、多样性、速度、难辨识。</p>
+<p>后面多加数据价值，变成5V特性。</p>
+<p><img src="C:\Users\liumou\AppData\Roaming\Typora\typora-user-images\image-20230707220234712.png" alt="image-20230707220234712"></p>
+<h1 id="路由协议"><a href="#路由协议" class="headerlink" title="路由协议"></a>路由协议</h1><h1 id="以太网交换技术"><a href="#以太网交换技术" class="headerlink" title="以太网交换技术"></a>以太网交换技术</h1><h1 id="云计算技术"><a href="#云计算技术" class="headerlink" title="云计算技术"></a>云计算技术</h1><h1 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h1><h1 id="WLAN技术"><a href="#WLAN技术" class="headerlink" title="WLAN技术"></a>WLAN技术</h1><h1 id="IPV6技术"><a href="#IPV6技术" class="headerlink" title="IPV6技术"></a>IPV6技术</h1><h4 id="IPV6的概念"><a href="#IPV6的概念" class="headerlink" title="IPV6的概念"></a>IPV6的概念</h4><p>IPV6是互联网工程任务组设计的用于替换ipv4的下一代IP协议,其地址数量号称可以为全世界的每一粒沙子编上一个地址。由于ipv4最大的问题在于网络地址资源有限,严重限制了互联网的应用和发展。ipv6的使用，不仅能解决网络地址资源数量的问题,而且也解决了多种设备接入互联网的阻碍。</p>
+<p><strong>说白了就是ipv4的ip地址不够用了。</strong></p>
+<h1 id="SDN技术"><a href="#SDN技术" class="headerlink" title="SDN技术"></a>SDN技术</h1><p><img src="C:\Users\liumou\AppData\Roaming\Typora\typora-user-images\image-20230719155430774.png" alt="image-20230719155430774"></p>
+<p><img src="C:\Users\liumou\AppData\Roaming\Typora\typora-user-images\image-20230719155440738.png" alt="image-20230719155440738"></p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
 </div>
 
             <footer id="footer">
@@ -300,6 +259,12 @@ setInterval("createtime()",250);
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
     +     {% include '_custom/custom.swig' %}
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>

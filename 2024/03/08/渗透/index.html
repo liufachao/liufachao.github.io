@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title> | Up1set&#39;s Blog</title>
+    <meta name="author" content="Up1set" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/head.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <canvas id="fireworks" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767"></canvas>
+<script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+<script src="/js/fireworks.min.js"></script>
+<canvas id="background" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: -1"></canvas>
+<script src="/js/background.min.js"></script>
+<div id="cursor"></div>
+<link rel="stylesheet" href="/css/cursor.min.css">
+<script src="/js/cursor.min.js"></script>
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="\js\FunnyTitle.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+<!--动态线条背景-->
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>UP1SET&#39;S BLOG</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;UP1SET&#39;S BLOG</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1></h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/3/8
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="前后端"><a href="#前后端" class="headerlink" title="前后端"></a>前后端</h1><h2 id="前端基础技能"><a href="#前端基础技能" class="headerlink" title="前端基础技能"></a>前端基础技能</h2><ul>
+<li><p>HTML是HyperText Mark-up Language的缩写，即超文本标签语言。通过标签实现网页元素的排列，定义网页结构构成网页的<em>骨架</em>。</p>
+</li>
+<li><p>CSS是Cascading Style Sheets，即层叠样式表，用来定义HTML元素的样式，可以改变站点中所有页面的布局和外观，是网页的<em>皮肤</em>。</p>
+</li>
+<li><p>掌握这两者就可以将设计师的设计稿转换成静态网页，CSS3中的animation等属性可以实现简单的动画。目前最新的标准是HTML5和CSS3，加入了更多有利于开发的新特性。</p>
+</li>
+<li><p>JavaScript是一种轻量级网页脚本语言。与Java有一些共性但完全是另外一门语言。设计初衷为了解决和网页的交互问题。可以灵活地操作HTML、CSS元素，也是连接前端和后台服务器的桥梁，是网页的<em>动作</em>。</p>
+</li>
+<li><p>掌握Javascript就可以实现网页的一些较为复杂的动画，并且懂得前后台如何借助Javascript进行交互。</p>
+</li>
+</ul>
+<h2 id="后端基本了解"><a href="#后端基本了解" class="headerlink" title="后端基本了解"></a>后端基本了解</h2><p>​	后端开发即“服务器端”开发，主要涉及软件系统“后端”的东西。比如，用于托管网站和 App 数据的服务器、放置在后端服务器与浏览器及 App 之间的中间件，它们都属于后端。简单地说，那些你在屏幕上看不到但又被用来为前端提供支持的东西就是后端。</p>
+<p>例如登陆框：</p>
+<ul>
+<li><p>校验账号密码是否正确</p>
+</li>
+<li><p>校验验证码是否正确</p>
+</li>
+</ul>
+<h2 id="前后端数据传递"><a href="#前后端数据传递" class="headerlink" title="前后端数据传递"></a>前后端数据传递</h2><h3 id="前端传给后端"><a href="#前端传给后端" class="headerlink" title="前端传给后端"></a>前端传给后端</h3><p>1.HTML的标签form表单提交</p>
+<p>2.JQuery中的ajax提交</p>
+<p> <strong>$.ajax({</strong></p>
+<p>  <strong>method:’GET’,</strong></p>
+<p>  **url:’s.php’,&#x2F;&#x2F;<strong>本地测试时，此处的url是相对于html文件的路径；实际开发时，替换url为接口文档中的地址即可</strong></p>
+<p>  <strong>data:{</strong></p>
+<p>   <strong>username:’random’</strong></p>
+<p>  **}, &#x2F;&#x2F;<strong>发起请求时所附带的参数</strong></p>
+<p>  <strong>success:function(data) {</strong></p>
+<p>   <strong>console.log(data);</strong></p>
+<p>  **}&#x2F;&#x2F;**请求成功后的回调函数。当data为JSON格式时，可能需要使用JSON.parse(data)进行解析</p>
+<p> <strong>});</strong></p>
+<?php
+
+  **header("Content-type: text/html; charset=utf-8");** 
+
+/*获取AJAX所附带的参数*/
+
+  **$username=$_GET['username'];**
+
+  **/\****
+
+   ***** **对请求中所附带的参数进行相应的处理，**
+
+   *** 一般来说会依据这些参数进行相应的数据库查询**
+
+   *** 然后将数据库中查询到的数据转换成****json**格式传递给前端
+
+   *** 在****json**数据中存在中文时，json_encode函数中的第二个参数应为JSON_UNESCAPED_UNICODE
+
+   */
+
+  **echo '**前端所传的参数值为：'.$username;exit();
+
+**?><p>**</p>
+<h1 id="对于状态码的判断（仅说明常见到的情况）"><a href="#对于状态码的判断（仅说明常见到的情况）" class="headerlink" title="对于状态码的判断（仅说明常见到的情况）"></a>对于状态码的判断（仅说明常见到的情况）</h1><h3 id="1-信息响应（100-199）"><a href="#1-信息响应（100-199）" class="headerlink" title="1.信息响应（100-199）"></a>1.信息响应（100-199）</h3><p>100 Continue     表示到目前为止的内容都可行，可以继续请求，如果完成了目的可以忽略。</p>
+<h3 id="2-成功响应"><a href="#2-成功响应" class="headerlink" title="2.成功响应"></a>2.成功响应</h3><p>200 ok</p>
+<p>请求成功。成功的含义取决于 HTTP 方法：</p>
+<ul>
+<li><code>GET</code>: 资源已被提取并在消息正文中传输。</li>
+<li><code>HEAD</code>: 实体标头位于消息正文中。</li>
+<li><code>PUT</code> or <code>POST</code>: 描述动作结果的资源在消息体中传输。</li>
+<li><code>TRACE</code>: 消息正文包含服务器收到的请求消息。</li>
+</ul>
+<h3 id="3-重定向消息"><a href="#3-重定向消息" class="headerlink" title="3.重定向消息"></a>3.重定向消息</h3><p>300 Multiple Choice</p>
+<p>请求拥有多个可能的响应。用户代理或者用户应当从中选择一个。（没有标准化的方法来选择其中一个响应，但是建议使用指向可能性的 HTML 链接，以便用户可以选择。）</p>
+<p>301 Moved Permanently</p>
+<p>请求资源的 URL 已永久更改。在响应中给出了新的 URL。</p>
+<p>302 Found</p>
+<p>此响应代码表示所请求资源的 URI 已 <em>暂时</em> 更改。未来可能会对 URI 进行进一步的改变。因此，客户机应该在将来的请求中使用这个相同的 URI。</p>
+<p>303 See Other</p>
+<p>服务器发送此响应，以指示客户端通过一个 GET 请求在另一个 URI 中获取所请求的资源。</p>
+<p>304 Not Modified</p>
+<p>这是用于缓存的目的。它告诉客户端响应还没有被修改，因此客户端可以继续使用相同的缓存版本的响应。</p>
+<h3 id="4-客户端错误响应"><a href="#4-客户端错误响应" class="headerlink" title="4.客户端错误响应"></a>4.客户端错误响应</h3><p>400 Bad Request</p>
+<p>由于被认为是客户端错误（例如，错误的请求语法、无效的请求消息帧或欺骗性的请求路由），服务器无法或不会处理请求。</p>
+<p>401 Unauthorized</p>
+<p>虽然 HTTP 标准指定了”unauthorized”，但从语义上来说，这个响应意味着”unauthenticated”。也就是说，客户端必须对自身进行身份验证才能获得请求的响应。</p>
+<p>402 Payment Required(尚处实验)</p>
+<p>此响应代码保留供将来使用。创建此代码的最初目的是将其用于数字支付系统，但是此状态代码很少使用，并且不存在标准约定。</p>
+<p>403 Forbidden</p>
+<p>客户端没有访问内容的权限；也就是说，它是未经授权的，因此服务器拒绝提供请求的资源。与 <code>401 Unauthorized</code> 不同，服务器知道客户端的身份。</p>
+<p>404 Not Found</p>
+<p>服务器找不到请求的资源。在浏览器中，这意味着无法识别 URL。在 API 中，这也可能意味着端点有效，但资源本身不存在。服务器也可以发送此响应，而不是 <code>403 Forbidden</code>，以向未经授权的客户端隐藏资源的存在。这个响应代码可能是最广为人知的，因为它经常出现在网络上。</p>
+<h3 id="5-服务端错误响应"><a href="#5-服务端错误响应" class="headerlink" title="5.服务端错误响应"></a>5.服务端错误响应</h3><p>500 Internal Server Error</p>
+<p>服务器遇到了不知道如何处理的情况。</p>
+<p>501 Not Implemented</p>
+<p>服务器不支持请求方法，因此无法处理。服务器需要支持的唯二方法（因此不能返回此代码）是 <code>GET</code> and <code>HEAD</code>.</p>
+<p>502 Bad Gateway</p>
+<p>此错误响应表明服务器作为网关需要得到一个处理这个请求的响应，但是得到一个错误的响应。</p>
+<p>503 Service Unavailable</p>
+<p>服务器没有准备好处理请求。常见原因是服务器因维护或重载而停机。请注意，与此响应一起，应发送解释问题的用户友好页面。这个响应应该用于临时条件和如果可能的话，HTTP 标头 <code>Retry-After</code> 字段应该包含恢复服务之前的估计时间。网站管理员还必须注意与此响应一起发送的与缓存相关的标头，因为这些临时条件响应通常不应被缓存。</p>
+<p>504 Gateway Timeout</p>
+<p>当服务器充当网关且无法及时获得响应时，会给出此错误响应。</p>
+<p>505 HTTP Version Not Supported</p>
+<p>服务器不支持请求中使用的 HTTP 版本。</p>
+<p>506 Variant Also Negotiates</p>
+<p>服务器存在内部配置错误：所选的变体资源被配置为参与透明内容协商本身，因此不是协商过程中的适当终点。</p>
+<p>507 Insufficient Storage</p>
+<p>无法在资源上执行该方法，因为服务器无法存储成功完成请求所需的表示。</p>
+<p>508 Loop Detected</p>
+<p>服务器在处理请求时检测到无限循环。</p>
+<p>510 Not Extended</p>
+<p>服务器需要对请求进行进一步扩展才能完成请求。</p>
+<p>511 Network Authentication Required</p>
+<p>指示客户端需要进行身份验证才能获得网络访问权限。</p>
+<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h2 id="基础标签"><a href="#基础标签" class="headerlink" title="基础标签"></a>基础标签</h2><ul>
+<li><p>charset 定义编码类型</p>
+</li>
+<li><p>br 换行</p>
+</li>
+<li><p>title标签 定义标签页名字</p>
+</li>
+<li><p>h标签 定义标题（字体大小随标签后的数字增大而减小）</p>
+</li>
+<li><p>p标签 定义段落</p>
+</li>
+<li><p>a标签 跳转到链接（herf用来定义）</p>
+</li>
+<li><p>span标签 行内标签（两个span标签的内容不换行，在同一行）</p>
+</li>
+<li><p>form标签 定义表单  </p>
+<p>type&#x3D;text 内容可以随便写</p>
+<p>type&#x3D;password 内容会被加密 例如************</p>
+<p>type&#x3D;number 只能输入数字</p>
+</li>
+</ul>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul>
+<li><p>style 只对当前标签起作用</p>
+</li>
+<li><p>p 是一个选择器</p>
+</li>
+<li><p>color 颜色</p>
+</li>
+<li><p>text-align 居中</p>
+</li>
+<li><p>id选择器 通过#+名字定义</p>
+</li>
+<li><p>类选择器 同上，# 改为.</p>
+</li>
+</ul>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><ul>
+<li>alert 弹窗 **<script>alert("数据")</script>**（不要直接打出弹窗，系统会崩）</li>
+<li>输出到页面 <strong><script>document.write("数据")</script></strong>(dom类型xss)</li>
+<li>输出到控制台 <strong><script>console.log(“数据”)</script></strong></li>
+</ul>
+<h1 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h1><p>不用事先定义类型</p>
+<p>例如：</p>
+<?php
+
+
+
+?>
+
+<h3 id="基础-1"><a href="#基础-1" class="headerlink" title="基础"></a>基础</h3><ul>
+<li>$ 用来定义变量</li>
+<li>echo 用来输出</li>
+<li>var_dump 也是用来输出，可以看见输出类型及长度和内容（多用于调试代码）</li>
+<li>变量名要以字母或下划线开头，不能以字母或特殊字符开头，<strong>区分大小写</strong></li>
+<li>.可用于拼接字符串</li>
+</ul>
+<h1 id="kali"><a href="#kali" class="headerlink" title="kali"></a>kali</h1><h2 id="1-常用命令"><a href="#1-常用命令" class="headerlink" title="1.常用命令"></a>1.常用命令</h2><p>passwd 修改密码</p>
+<p>sudo passwd root 修改root用户密码</p>
+<p>date 显示系统日期</p>
+<p>sudo  调用最高管理员权限</p>
+<p>apt-get update 更新软件列表</p>
+<p>这个命令，会访问源列表里的每个网址，并读取软件列表，然后保存在本地电脑。我们在新立得软件包管理器里看到的软件列表，都是通过update命令更新的。</p>
+<p>apt-get upgrade 更新软件</p>
+<p>这个命令，会把本地已安装的软件，与刚下载的软件列表里对应软件进行对比，如果发现已安装的软件版本太低，就会提示你更新。如果你的软件都是最新版本，会提示： 升级了 0 个软件包，新安装了 0 个软件包，要卸载 0 个软件包，有 0 个软件包未被升级。</p>
+<p>apt-get dist-upgrade 更新软件  </p>
+<p>apt-get upgrade 与 apt-get dist-upgrade 的区别</p>
+<p>upgrade:系统将现有的Package升级,如果有相依性的问题,而此相依性需要安装其它新的Package或影响到其它Package的相依性时,此Package就不会被升级,会保留下来.</p>
+<p>dist-upgrade:可以聪明的解决相依性的问题,如果有相依性问题,需要安装&#x2F;移除新的Package,就会试着去安装&#x2F;移除它.<br>(所以通常这个会被认为是有点风险的升级)</p>
+<p>apt-get upgrade 和 apt-get dist-upgrade 本质上是没有什么不同的。</p>
+<p>只不过，dist-upgrade<br>会识别出当依赖关系改变的情形并作出处理，而upgrade对此情形不处理。</p>
+<p>例如软件包 a 原先依赖 b c d，但是在源里面可能已经升级了，现在是 a 依赖 b c e。这种情况下，dist-upgrade 会删除 d 安装 e，并把 a 软件包升级，而 upgrade 会认为依赖关系改变而拒绝升级 a<br>软件包。</p>
+<p>clear 清屏</p>
+<p>sudo gpedit 特权调用gpedit编辑器</p>
+<p>apt-get install XXXXX 安装缺少的依赖包，（XXX）里面输入缺少依赖包的名字</p>
+<p>apt-get autoremove –purge 软件名 删除包及其依赖的软件包+配置文件等</p>
+<p>apt-get install +模块名 这种方法也可以安装模块,或者apt-get install python-模块名</p>
+<p>firefox 浏览器打开</p>
+<p>shutdown -h now 关闭系统(1)</p>
+<p>init 0 关闭系统(2)</p>
+<p>telinit 0 关闭系统(3)</p>
+<p>shutdown -h hours:minutes &amp; 按预定时间关闭系统</p>
+<p>shutdown -c 取消按预定时间关闭系统</p>
+<p>shutdown -r now 重启(1)</p>
+<p>reboot 重启(2)</p>
+<p>su -l 切换登陆用户</p>
+<p>logout 注销用户登陆</p>
+<p>pwd 当前路径</p>
+<h2 id="2-文件夹或文本操作"><a href="#2-文件夹或文本操作" class="headerlink" title="2.文件夹或文本操作"></a>2.文件夹或文本操作</h2><p>cd .. 返回上一级目录</p>
+<p>cd ..&#x2F;.. 返回上级两级目录</p>
+<p>cd - 返回上次所在的目录</p>
+<p>cd 文件夹名  进去文件夹</p>
+<p>cd ~ 进去当前用户主目录</p>
+<p>pwd 显示当前工作路径</p>
+<p>touch 文件名  常见文件</p>
+<p>cat 文件名 读取文档内容</p>
+<p>mkdir 文件名 创建文件夹</p>
+<p>mkdir -p 文件夹 递归创建文件夹</p>
+<p>cp 复制命令</p>
+<p>cp -r moon moons 复制moon 文件夹到当前 moons 如果有里面有文件 使用-r </p>
+<p>mv 移动命令</p>
+<p>mv moon moon 也可以说是改名</p>
+<p>mkdir 文件名 文件名 创建多个文件夹</p>
+<p>ls 显示文件和文件夹名</p>
+<p>ls -a 显示所有的文件和文件夹 包含隐藏文件</p>
+<p>ls -l 显示文件和目录的详细资料</p>
+<p>删除</p>
+<p>rm -f 文件  删除文件</p>
+<p>rm 文件夹名 删除文件夹</p>
+<p>rm -rf  文件&#x2F;文件夹  删除文件夹 及其目录下的文件</p>
+<p>压缩和解压<br>bzip2 file1 压缩一个叫做 ‘file1’ 的文件</p>
+<p>gunzip file1.gz 解压一个叫做 ‘file1.gz’的文件</p>
+<p>gzip file1 压缩一个叫做 ‘file1’的文件</p>
+<p>gzip -9 file1 最大程度压缩</p>
+<p>rar a file1.rar test_file 创建一个叫做 ‘file1.rar’ 的包</p>
+<p>rar x file1.rar 解压rar包</p>
+<p>unrar x file1.rar 解压rar包</p>
+<p>DEB 包 (Debian, Ubuntu 以及类似系统)<br>dpkg -i package.deb 安装&#x2F;更新一个 deb 包</p>
+<p>dpkg -r package_name 从系统删除一个 deb 包</p>
+<p>dpkg -l 显示系统中所有已经安装的 deb 包</p>
+<p>dpkg -l | grep httpd 显示所有名称中包含 “httpd” 字样的deb包</p>
+<p>dpkg -s package_name 获得已经安装在系统中一个特殊包的信息</p>
+<p>dpkg -L package_name 显示系统中已经安装的一个deb包所提供的文件列表</p>
+<p>dpkg –contents package.deb 显示尚未安装的一个包所提供的文件列表</p>
+<p>tar zcvf +压缩文件名 压缩文件</p>
+<p>tar zxvf +解压包名 解压文件</p>
+<p>tar -jcvf renwolesshel.tar.bz2 打包</p>
+<p>tar jxvf renwolesshel.tar.bz2 解压</p>
+<p>压缩成zip格式</p>
+<p>zip -q -r renwolesshel.zip renwolesshel&#x2F;<br>解压zip格式的压缩包</p>
+<p>unzip renwolesshel.zip</p>
+<p>which 加软件名 可以查出软件目录在哪</p>
+<p>.&#x2F;+文件名或者apt-get +文件名 安装文件</p>
+<h2 id="3-系统信息"><a href="#3-系统信息" class="headerlink" title="3.系统信息"></a>3.系统信息</h2><p>arch 显示机器的处理器架构(1)</p>
+<p>uname -m 显示机器的处理器架构(2)</p>
+<p>uname -r 显示正在使用的内核版本</p>
+<p>cat &#x2F;proc&#x2F;version 显示内核的版本</p>
+<p>cat &#x2F;proc&#x2F;net&#x2F;dev 显示网络适配器及统计</p>
+<p>cat &#x2F;proc&#x2F;cpuinfo 显示CPU info的信息</p>
+<p>cat &#x2F;proc&#x2F;mounts 显示已加载的文件系统</p>
+<h2 id="4-vi-常用命令"><a href="#4-vi-常用命令" class="headerlink" title="4.vi 常用命令"></a>4.vi 常用命令</h2><h2 id="vi编辑器的概念"><a href="#vi编辑器的概念" class="headerlink" title="vi编辑器的概念"></a>vi编辑器的概念</h2><p>vi编辑器分为三种状态，分别是：<br>1.命令模式（command mode）<br>控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者到 last line mode。</p>
+<p>2.插入模式（Insert mode）</p>
+<p>只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。</p>
+<p>3.底行模式（last line mode）</p>
+<p>将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。</p>
+<p><strong>打开</strong></p>
+<p>vi filename :打开或新建文件，并将光标置于第一行首<br>vi +n filename ：打开文件，并将光标置于第n行首<br>vi + filename ：打开文件，并将光标置于最后一行首</p>
+<p><strong>编辑</strong></p>
+<p>i 在当前位置生前插入<br>I 在当前行首插入<br>a 在当前位置后插入<br>A 在当前行尾插入<br>o 在当前行之后插入一行<br>O 在当前行之前插入一行<br>编辑结束，按Esc返回命令模式</p>
+<p><strong>基本查找</strong></p>
+<p>&#x2F;text　　查找text，按n健查找下一个，按N健查找前一个。<br>?text　　查找text，反向查找，按n健查找下一个，按N健查找前一个。<br>查找很长的词，如果一个词很长，键入麻烦，可以将光标移动到该词上，按*或#键即可以该单词进行搜索，相当于&#x2F;搜索。而#命令相当于?搜索。</p>
+<p><strong>删除</strong></p>
+<p>删除当前行 dd<br>删除2行 2dd</p>
+<p><strong>拷贝和粘贴</strong></p>
+<p>yy 拷贝当前行<br>nyy 拷贝当前后开始的n行，比如2yy拷贝当前行及其下一行。<br>p  在当前光标后粘贴</p>
+<p>区块拷贝</p>
+<ol>
+<li>将光标移动到要复制的文本开始的地方，按 v进入可视模式。</li>
+<li>将光标移动到要复制的文本的结束的地方，按y复制。此时vim会自动将光标定位到选中文本的开始的地方，并退出可视模式。</li>
+<li>我移动光标到文本结束的地方，按 p粘贴。</li>
+</ol>
+<p><strong>退出命令</strong></p>
+<p>:wq 保存并退出<br>:q! 强制退出并忽略所有更改<br>:e! 放弃所有修改，并打开原来文件<br>:w保存修改</p>
+<p><strong>显示行号</strong></p>
+<p>set number</p>
+<p>set nu</p>
+<p>输入:n，代表跳转到第n行，如:100，就跳转到第100行。</p>
+<p>撤销操作</p>
+<p>u</p>
+<p>vim与vi的区别</p>
+<p>vim是vi的延申 vim编辑源码会高亮 vim的命令对vi是完全兼容的</p>
+<h2 id="5-文件搜索"><a href="#5-文件搜索" class="headerlink" title="5.文件搜索"></a>5.文件搜索</h2><p>find &#x2F; -name file1 从 ‘&#x2F;’ 开始进入根文件系统搜索文件和目录</p>
+<p>find &#x2F; -user user1 搜索属于用户 ‘user1’ 的文件和目录<br>find &#x2F;home&#x2F;user1 -name *.bin 在目录 ‘&#x2F; home&#x2F;user1’ 中搜索带有’.bin’ 结尾的文件<br>find &#x2F;usr&#x2F;bin -type f -atime +100 搜索在过去100天内未被使用过的执行文件<br>find &#x2F;usr&#x2F;bin -type f -mtime -10 搜索在10天内被创建或者修改过的文件</p>
+<p>find . -name ‘<em>.php’ -mmin -30  查找最近30分钟修改的当前目录下的.php文件<br>find . -name ‘</em>.php’ -mtime 0<br>查找最近24小时修改的当前目录下的.php文件</p>
+<p>find . -name ‘*.inc’ -mtime 0 -ls<br>查找最近24小时修改的当前目录下的.php文件，并列出详细信息</p>
+<p>find . -type f -mtime 1</p>
+<p>查找当前目录下，最近24-48小时修改过的常规文件。<br>find . -type f -mtime +1<br>查找当前目录下，最近1天前修改过的常规文件。</p>
+<p>-atime 文件访问时间</p>
+<p>-ctime 文件常见时间</p>
+<p>-mtime文件修改时间</p>
+<p>-mtime n : n为数字，意思为在n天之前的“一天之内”被更改过内容的文件<br>-mtime +n : 列出在n天之前（不含n天本身）被更改过内容的文件名<br>-mtime -n : 列出在n天之内（含n天本身）被更改过内容的文件名</p>
+<p>-type f 代表一个普通格式的文件 二进制文件</p>
+<p>-type d 代表文件夹</p>
+<p>find &#x2F; -name *.rpm -exec chmod 755 ‘{}’ ; 搜索以 ‘.rpm’ 结尾的文件并定义其权限<br>find &#x2F; -xdev -name *.rpm 搜索以 ‘.rpm’ 结尾的文件，忽略光驱、捷盘等可移动设备<br>locate *.ps 寻找以 ‘.ps’ 结尾的文件 - 先运行 ‘updatedb’ 命令<br>whereis halt 显示一个二进制文件、源码或man的位置<br>which halt 显示一个二进制文件或可执行文件的完整路径</p>
+<p>grep kali &#x2F;etc&#x2F;passwd grep关键词搜索</p>
+<p>find &#x2F; -name moonsec 2&gt;&#x2F;dev&#x2F;null   搜索某个文件&#x2F;文件夹 屏蔽出错信息</p>
+<h2 id="6-用户和群组"><a href="#6-用户和群组" class="headerlink" title="6.用户和群组"></a>6.用户和群组</h2><p>groupadd group_name 创建一个新用户组<br>groupdel group_name 删除一个用户组</p>
+<p>cat &#x2F;etc&#x2F;group | grep group_name </p>
+<p>usermod -a -G moontea k1把用户k1附加其他用户组</p>
+<p>创建目录</p>
+<p>useradd moonsec</p>
+<p>passwd moonsec</p>
+<p>创建用户以及分配目录</p>
+<p>useradd -r -m -s &#x2F;bin&#x2F;bash moonsec</p>
+<p>参数的意思：<br>-r 建立系统账号<br>-m 自动建立用户的登入目录<br>-s &#x2F;bin&#x2F;bash 指定用户登入后所使用的shell</p>
+<p>切换用户</p>
+<p>su - root 切换到root用户</p>
+<p>su 用户名 切换到普通用户</p>
+<h2 id="7-系统管理"><a href="#7-系统管理" class="headerlink" title="7.系统管理"></a>7.系统管理</h2><p>top</p>
+<p>查看正在指向的程序信息</p>
+<p>进程</p>
+<p>ps -ef 查看所有进程信息</p>
+<p>ps -ef | grep tomcat 查找指定进程</p>
+<p>kill -9 id 强制杀死进程</p>
+<p>env 当前的变量</p>
+<p>查看系统变量</p>
+<p>echo $PATH</p>
+<p>hostname 查看主机名</p>
+<p>history 查看历史命令</p>
+<h2 id="8-查看磁盘信息"><a href="#8-查看磁盘信息" class="headerlink" title="8.查看磁盘信息"></a>8.查看磁盘信息</h2><p>df   默认不带单位，挂载点、总容量、已用、可用</p>
+<p>df  -h   友好显示（带单位），很多命令的友好显示都是-h</p>
+<h2 id="9-查看内存信息"><a href="#9-查看内存信息" class="headerlink" title="9.查看内存信息"></a>9.查看内存信息</h2><p>free   默认以KB为单位，总容量、已用、可用、缓存大小</p>
+<p>free  -m   默认以MB为单位</p>
+<p>free  -h   上面2种都不带单位、只显示数值，这种是友好显示的，会带单位G、M等</p>
+<h2 id="10-查看环境变量"><a href="#10-查看环境变量" class="headerlink" title="10.查看环境变量"></a>10.查看环境变量</h2><p>echo  $JAVA_HOME<br>echo $PATH | grep jdk</p>
+<h2 id="11开机自启"><a href="#11开机自启" class="headerlink" title="11开机自启"></a>11开机自启</h2><p>有很多程序往往都需要设置开机自启，比如tomcat、mysql、nginx等。</p>
+<p>在&#x2F;etc&#x2F;rc.d&#x2F;rc.local文件中加入开机要自动执行的程序</p>
+<p>vim &#x2F;etc&#x2F;rc.d&#x2F;rc.local</p>
+<p>挂载一个windows网络共享</p>
+<p>mount -t smbfs -o username&#x3D;user,password&#x3D;pass &#x2F;&#x2F;WinClient&#x2F;share &#x2F;mnt&#x2F;share </p>
+<h2 id="12网卡配置"><a href="#12网卡配置" class="headerlink" title="12网卡配置"></a>12网卡配置</h2><p>vi &#x2F;etc&#x2F;network&#x2F;interfaces</p>
+<p>auto eth0  &#x2F;&#x2F;指定网卡（根据ifconfig结果修改）<br>iface eth0 inet static  &#x2F;&#x2F;启动静态ip<br>address 192.168.0.66  &#x2F;&#x2F; 设置静态ip<br>netmask 255.255.255.0  &#x2F;&#x2F;子网掩码<br>gateway 192.168.0.1  &#x2F;&#x2F;指定网关</p>
+<p>重启网络</p>
+<p>service networking restart<br>或者：<br>systemctl restart networking</p>
+<p>设置临时ip</p>
+<p>ifconfig eth0 192.168.0.33</p>
+<p>ifconfig 查看网络连接信息</p>
+<p>ip addr 查看网络连接信息</p>
+<h2 id="13网卡DNS服务器"><a href="#13网卡DNS服务器" class="headerlink" title="13网卡DNS服务器"></a>13网卡DNS服务器</h2><p>vi &#x2F;etc&#x2F;resovl.conf</p>
+<p>nameserver 114.114.114.114</p>
+<p>重启网卡</p>
+<p>service networking restart</p>
+<p>systemctl restart networking</p>
+<p>注意有时候重启才生效</p>
+<h2 id="14-服务相关"><a href="#14-服务相关" class="headerlink" title="14.服务相关"></a>14.服务相关</h2><p>启动apache2服务器</p>
+<p> &#x2F;etc&#x2F;init.d&#x2F;apache2 start</p>
+<p>打开：&#x2F;etc&#x2F;init.d&#x2F;apache2 start<br>重启：&#x2F;etc&#x2F;init.d&#x2F;apache2 restart<br>关闭：&#x2F;etc&#x2F;init.d&#x2F;apache2 stop</p>
+<p>启动网卡</p>
+<p>&#x2F;etc&#x2F;init.d&#x2F;network start</p>
+<p>网络相关</p>
+<p>开启路由转发</p>
+<p>echo 1 &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv4&#x2F;ip_forward</p>
+<h2 id="15-linux常用网络命令"><a href="#15-linux常用网络命令" class="headerlink" title="15.linux常用网络命令"></a><strong>15.linux常用网络命令</strong></h2><p>网络和监控命令类似于这些： hostname, ping, ifconfig, iwconfig, netstat, nslookup, traceroute, finger, telnet, ethtool 用于查看 linux 服务器 ip 地址，管理服务器网络配置，通过 telnet 和 ethernet 建立与 linux 之间的网络链接，查看 linux 的服务器信息等。下面让我们看看在 Linux 下的网络和监控命令的使用。</p>
+<p>hostname 查看本机名</p>
+<p>ping  一般用于测试网络是否通 内网icmp</p>
+<p>ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> -c 3 执行3次</p>
+<p>ifconfig 网卡信息</p>
+<p>iwconfig 用于配置或获取无线网络设备信息</p>
+<p>netstat </p>
+<p>-a (all)显示所有选项，默认不显示LISTEN相关<br>-t (tcp)仅显示tcp相关选项<br>-u (udp)仅显示udp相关选项<br>-n 拒绝显示别名，能显示数字的全部转化成数字。<br>-l 仅列出有在 Listen (监听) 的服務状态</p>
+<p>-p 显示建立相关链接的程序名<br>-r 显示路由信息，路由表<br>-e 显示扩展信息，例如uid等<br>-s 按各个协议进行统计<br>-c 每隔一个固定时间，执行该netstat命令。</p>
+<p>提示：LISTEN和LISTENING的状态只有用-a或者-l才能看到</p>
+<p>常用命令</p>
+<p>netstat -ano</p>
+<p>-an 查看当前所有已连接端口<br>-nlpt 查看当前所有tcp端口<br>-nlpu 查看当前所有udp端口<br>-nlpt | grep 80 查看所有80端口使用情况</p>
+<p>netstat -lntup 查看所有的tcp和upd端口</p>
+<p>nslookup </p>
+<p>查询其他记录<br>直接查询返回的是A记录，我们可以指定参数，查询其他记录，比如AAAA、MX等。</p>
+<p>nslookup -qt&#x3D;type domain [dns-server]<br>其中，type可以是以下这些类型：</p>
+<p>A 地址记录<br>AAAA 地址记录<br>AFSDB Andrew文件系统数据库服务器记录<br>ATMA ATM地址记录<br>CNAME 别名记录<br>HINFO 硬件配置记录，包括CPU、操作系统信息<br>ISDN 域名对应的ISDN号码<br>MB 存放指定邮箱的服务器<br>MG 邮件组记录<br>MINFO 邮件组和邮箱的信息记录<br>MR 改名的邮箱记录<br>MX 邮件服务器记录<br>NS 名字服务器记录<br>PTR 反向记录<br>RP 负责人记录<br>RT 路由穿透记录<br>SRV TCP服务器信息记录<br>TXT 域名对应的文本信息<br>X25 域名对应的X.25地址记录</p>
+<p>http协议</p>
+<p>curl</p>
+<p>wget</p>
+<p>traceroute</p>
+<p>traceroute是用来检测发出数据包的主机到目标主机之间所经过的网关数量的工具。traceroute的原理是试图以最小的TTL（存活时间）发出探测包来跟踪数据包到达目标主机所经过的网关，然后监听一个来自网关ICMP的应答。发送数据包的大小默认为38个字节。</p>
+<p>-d 使用Socket层级的排错功能。<br>-f 设置第一个检测数据包的存活数值TTL的大小。<br>-F 设置勿离断位。<br>-g 设置来源路由网关，最多可设置8个。<br>-i 使用指定的网络界面送出数据包。<br>-I 使用ICMP回应取代UDP资料信息。<br>-m 设置检测数据包的最大存活数值TTL的大小。<br>-n 直接使用IP地址而非主机名称。<br>-p 设置UDP传输协议的通信端口。<br>-r 忽略普通的Routing Table，直接将数据包送到远端主机上。<br>-s 设置本地主机送出数据包的IP地址。<br>-t 设置检测数据包的TOS数值。<br>-v 详细显示指令的执行过程。<br>-w 设置等待远端主机回报的时间。</p>
+<p>-x 开启或关闭数据包的正确性检验。</p>
+<p>telnet</p>
+<p>Linux telnet命令用于远端登入。</p>
+<p>执行telnet指令开启终端机阶段作业，并登入远端主机。</p>
+<p>现在多数用于检测某个端口是否开放</p>
+<p>Finger</p>
+<p>Finger是一种用户信息分享服务。它工作在TCP 79端口，可以用来公开用户的特定信息。Nmap的finger的脚本可以向Finger服务器发送请求，查询并获取用户的相关信息，如登录名、用户名、TTY类型、登录时间等。</p>
+<p>ethtool 是用于查询及设置网卡参数的命令</p>
+<h2 id="16-防火墙iptables"><a href="#16-防火墙iptables" class="headerlink" title="16.防火墙iptables"></a>16.防火墙iptables</h2><p>查看防火墙规则</p>
+<p>iptalbes -L</p>
+<p>清除规则</p>
+<p>iptables -F</p>
+<p>关闭防火墙 </p>
+<p>&#x2F;etc&#x2F;init.d&#x2F;iptables stop</p>
+<p>service iptables stop</p>
+<p>安装：apt-get install ufw</p>
+<p>关闭：ufw disable # To disable the firewall</p>
+<p>开启：ufw enable # To enable the firewall</p>
+<h2 id="17-开启某服务"><a href="#17-开启某服务" class="headerlink" title="17.开启某服务"></a>17.开启某服务</h2><p> sudo service apache2 start</p>
+<p>开启apache服务</p>
+<h2 id="18-换源"><a href="#18-换源" class="headerlink" title="18.换源"></a>18.换源</h2><p>•&#x2F;etc&#x2F;apt&#x2F;sources.list</p>
+<p>•<a target="_blank" rel="noopener" href="http://blog.csdn.net/gmnet/article/details/14471835">http://blog.csdn.net/gmnet/article/details/14471835</a></p>
+<p>•<a target="_blank" rel="noopener" href="http://www.cnsecer.com/328.html">http://www.cnsecer.com/328.html</a></p>
+<p>•<a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_6d0d6cff0101ddjb.html">http://blog.sina.com.cn/s/blog_6d0d6cff0101ddjb.html</a></p>
+<p>•<a target="_blank" rel="noopener" href="http://blog.csdn.net/gmnet/article/details/14471835">http://blog.csdn.net/gmnet/article/details/14471835</a></p>
+<h2 id="19-配置ssh连接（xshell"><a href="#19-配置ssh连接（xshell" class="headerlink" title="19.配置ssh连接（xshell"></a>19.配置ssh连接（xshell</h2><p>1、修改sshd_config文件，命令为：vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config </p>
+<p>2、将#PasswordAuthentication no的注释去掉，并且将NO修改为YES  &#x2F;&#x2F;我的kali中默认是yes</p>
+<p>3、将#PermitRootLogin yes的注释去掉 &#x2F;&#x2F;我的kali中默认去掉了注释</p>
+<p>4、启动SSH服务，命令为：&#x2F;etc&#x2F;init.d&#x2F;ssh start &#x2F;&#x2F; 或者service ssh start</p>
+<p>5、验证SSH服务状态，命令为：&#x2F;etc&#x2F;init.d&#x2F;ssh status</p>
+<h1 id="WIN下常见命令"><a href="#WIN下常见命令" class="headerlink" title="WIN下常见命令"></a>WIN下常见命令</h1><h2 id="dos命令"><a href="#dos命令" class="headerlink" title="dos命令"></a>dos命令</h2><ol>
+<li>ping <a target="_blank" rel="noopener" href="http://www.baidu.com//IP">www.baidu.com//IP</a>  测试网络连接情况</li>
+<li>arp -a  查看地址解析的相关信息</li>
+<li>tracert <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> 测试连接百度时的一些路由</li>
+<li>netstat -a 查看端口对应的服务</li>
+</ol>
+<h1 id="逸神讲课"><a href="#逸神讲课" class="headerlink" title="逸神讲课"></a>逸神讲课</h1><h2 id="php"><a href="#php" class="headerlink" title="php"></a>php</h2><ul>
+<li><p>找危险函数 curl_exec()、fsockopen()、file_get_contents()、fopen()等</p>
+</li>
+<li><p>看绝对路径</p>
+</li>
+<li><p><strong>任意文件删除    unlink（在看看，不是很懂）</strong></p>
+</li>
+<li><p>看文件名</p>
+<p>xxxx.php</p>
+<p>..&#x2F;..&#x2F;..&#x2F;etc&#x2F;passwd</p>
+<p>..&#x2F;..&#x2F;..&#x2F;config,php配置文件多数所在</p>
+</li>
+</ul>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>常规思路：</p>
+<ul>
+<li>黑白名单</li>
+<li>php一般看能不能解析</li>
+<li>找绝对路径</li>
+<li>www    system    administrator重点目录</li>
+</ul>
+<p>一般抓包改后缀eg：php4 php5这种     phppphp</p>
+<p>apache的配置文件.htaccess要注意</p>
+<p>.user    .ini</p>
+<p>php  这种空格会被windows自动去掉（靶场好像有这题）</p>
+<?php
+
+echo'whoami';
+
+?>
+
+<p>exec变形可以代码执行</p>
+<ul>
+<li>通过直接函数修改</li>
+<li>或者其他方式传递</li>
+</ul>
+<h2 id="针对登录框"><a href="#针对登录框" class="headerlink" title="针对登录框"></a>针对登录框</h2><ul>
+<li>常用手段  ：sql   xss</li>
+<li>有验证码可以考虑（并发–虽然不会），尝试删除验证的相关参数</li>
+<li>修改返回包    true or false   1和0取反</li>
+<li>尝试手机号爆破（测试手机号19999999999）</li>
+<li><strong>弱口令依旧yyds</strong>（一些系统的官方文档，里面可能有默认账号密码）</li>
+<li>记得查看浏览器参数会不会前端执行（xss）</li>
+</ul>
+<h2 id="针对xss"><a href="#针对xss" class="headerlink" title="针对xss"></a>针对xss</h2><ul>
+<li><p>修改url参数（get）</p>
+</li>
+<li><p>修改抓包参数</p>
+</li>
+<li><p><strong>文件上传</strong>（通过文件名：htm  html   xml   rss pdf等）——来自逸神的新思路</p>
+<p>头像修改处能不能xss，图片同样存在文件名和路径？？？</p>
+</li>
+</ul>
+<h2 id="越权"><a href="#越权" class="headerlink" title="越权"></a>越权</h2><p>只会简单的id直接修改参数越权</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Aaron_Miller/article/details/119004093%EF%BC%88tomcat%E5%BC%B1%E5%8F%A3%E4%BB%A4%EF%BC%89">https://blog.csdn.net/Aaron_Miller/article/details/119004093（tomcat弱口令）</a></p>
+<p>可以尝试尝试抓包（post头  请求头 各种参数）</p>
+<h2 id="一洞三吃"><a href="#一洞三吃" class="headerlink" title="一洞三吃"></a>一洞三吃</h2><ul>
+<li><p>个人信息处，头像修改功能，头像文件的存放路径，抓包修改功能路径，实现功能相反或出错</p>
+</li>
+<li><p>修改后的路径处写script标签</p>
+</li>
+<li><p>还有一吃没吃到。。。。。。</p>
+</li>
+</ul>
+<h2 id="目录xss（感觉也是从前端代码入手）"><a href="#目录xss（感觉也是从前端代码入手）" class="headerlink" title="目录xss（感觉也是从前端代码入手）"></a><strong>目录xss（感觉也是从前端代码入手）</strong></h2><h1 id="小细节"><a href="#小细节" class="headerlink" title="小细节"></a>小细节</h1><ul>
+<li>一些中间件的信息可以从服务器返回的数据包中查看</li>
+</ul>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 Up1set&#39;s Blog
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Up1set
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("03/08/2024 16:28:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+    +     {% include '_custom/custom.swig' %}
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
