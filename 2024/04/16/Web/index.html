@@ -174,62 +174,14 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/3/8
+            2024/4/16
         </span>
         
         
     </div>
     
     <div class="content" v-pre>
-        <h1 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h1><h2 id="做题前先做什么"><a href="#做题前先做什么" class="headerlink" title="做题前先做什么"></a>做题前先做什么</h2><p>查文件（file ldd readelf）</p>
-<p>不检查长度和类型，直接操作内存</p>
-<h2 id="常用寄存器（32位）"><a href="#常用寄存器（32位）" class="headerlink" title="常用寄存器（32位）"></a>常用寄存器（32位）</h2><p>ESP、EBP、EIP</p>
-<h2 id="可执行文件类型"><a href="#可执行文件类型" class="headerlink" title="可执行文件类型"></a>可执行文件类型</h2><p>广义下：文件中的数据是可执行代码文件</p>
-<p>.out	.exe	.sh	.py</p>
-<p>狭义下：文件中的数据是机器码的文件</p>
-<p>.out	.exe	.dll	.so</p>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p><strong>windows：PE</strong></p>
-<ul>
-<li><p>可执行程序：.exe</p>
-</li>
-<li><p>动态链接库：.dll</p>
-</li>
-<li><p>静态链接库：.lib</p>
-</li>
-</ul>
-<p><strong>Linux：ELF</strong></p>
-<ul>
-<li><p>可执行程序：.out</p>
-</li>
-<li><p>动态链接库：.so</p>
-</li>
-<li><p>静态链接库：.a</p>
-</li>
-</ul>
-<h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><p>rax用来存放返回值</p>
-<p>rbp 存放栈底的地址</p>
-<p>rsp存放栈顶的地址</p>
-<p>rip存放当前执行的指令的地址</p>
-<p><strong>程序的栈是从进程地址空间的高地址向低地址增长的</strong>。</p>
-<ul>
-<li><p>x86</p>
-<ul>
-<li><strong>函数参数</strong>在<strong>函数返回地址</strong>的上方</li>
-</ul>
-</li>
-<li><p>x64</p>
-<ul>
-<li><p>System V AMD64 ABI (Linux、FreeBSD、macOS 等采用) 中前六个整型或指针参数依次保存在 <strong>RDI, RSI, RDX, RCX, R8 和 R9 寄存器</strong>中，如果还有更多的参数的话才会保存在栈上。</p>
-</li>
-<li><p>内存地址不能大于 0x00007FFFFFFFFFFF，<strong>6 个字节长度</strong>，否则会抛出异常。</p>
-<p>函数调用过程通常用堆栈来实现。</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>$IFS$9可以替换空格</p>
-<p>linux中%0A也可以换空格</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 基础的web开发知识，包括HTML、CSS、JavaScript、PHP、MySQL等，了解常见的web架构和原理，能够搭建简单的动态网站。</span><br><span class="line"><span class="bullet">-</span> 常见的web漏洞类型和原理，包括SQL注入、XSS、文件包含、文件上传、命令执行、代码审计、反序列化等，了解各种漏洞的利用方法和防御措施。</span><br><span class="line"><span class="bullet">-</span> 常用的web渗透工具和技巧，包括BurpSuite、Fiddler、Nmap、DirBuster等，能够抓包分析、修改请求头、伪造Cookie、绕过WAF等。</span><br><span class="line"><span class="bullet">-</span> 基本的Python编程能力，能够使用requests、BeautifulSoup等库编写爬虫和自动化脚本，处理一些复杂的计算或逻辑题目。</span><br><span class="line"><span class="bullet">-</span> 一定的代码审计能力，能够阅读和分析PHP、Python等语言的源码，寻找潜在的漏洞或后门。</span><br><span class="line"></span><br><span class="line">(1) 2023最全CTF入门指南（建议收藏） - 知乎. https://zhuanlan.zhihu.com/p/631613398.</span><br><span class="line">(2) CTF-Web小白入门篇超详细——了解CTF-Web基本题型及其 .... https://blog.csdn.net/weixin<span class="emphasis">_44953600/article/details/105399366.</span></span><br><span class="line"><span class="emphasis">(3) CTF学习经验分享（Web方向） - CSDN博客. https://blog.csdn.net/Baian_</span>Gu/article/details/120709851.</span><br><span class="line">(4) CTF自学资源总结 - 知乎. https://zhuanlan.zhihu.com/p/404235601.</span><br><span class="line">(5) undefined. https://www.jianshu.com/p/5fd1b624fd7a.</span><br><span class="line">(6) undefined. http://123.206.87.240:8002/web2/.</span><br><span class="line">(7) undefined. http://123.206.87.240:8002/web3/.</span><br><span class="line">(8) undefined. http://123.206.87.240:8002/get/.</span><br><span class="line">(9) undefined. http://123.206.87.240:8002/post/.</span><br><span class="line">(10) undefined. http://123.206.87.240:9001/test/.</span><br><span class="line">(11) undefined. https://blog.csdn.net/weixin<span class="emphasis">_44953600/article/details/107331849.</span></span><br><span class="line"><span class="emphasis">(12) undefined. http://123.206.87.240:9009/hd.php.</span></span><br><span class="line"><span class="emphasis">(13) undefined. http://123.206.87.240:8002/localhost/.</span></span><br><span class="line"><span class="emphasis">(14) undefined. http://123.206.31.85:1003/.</span></span><br><span class="line"><span class="emphasis">(15) undefined. https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=0&amp;id=5068.</span></span><br><span class="line"><span class="emphasis">(16) undefined. https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=5002.</span></span><br><span class="line"><span class="emphasis">(17) undefined. http://123.206.87.240:8002/qiumingshan/.</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"></span></span><br></pre></td></tr></table></figure>
+        <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 基础的web开发知识，包括HTML、CSS、JavaScript、PHP、MySQL等，了解常见的web架构和原理，能够搭建简单的动态网站。</span><br><span class="line"><span class="bullet">-</span> 常见的web漏洞类型和原理，包括SQL注入、XSS、文件包含、文件上传、命令执行、代码审计、反序列化等，了解各种漏洞的利用方法和防御措施。</span><br><span class="line"><span class="bullet">-</span> 常用的web渗透工具和技巧，包括BurpSuite、Fiddler、Nmap、DirBuster等，能够抓包分析、修改请求头、伪造Cookie、绕过WAF等。</span><br><span class="line"><span class="bullet">-</span> 基本的Python编程能力，能够使用requests、BeautifulSoup等库编写爬虫和自动化脚本，处理一些复杂的计算或逻辑题目。</span><br><span class="line"><span class="bullet">-</span> 一定的代码审计能力，能够阅读和分析PHP、Python等语言的源码，寻找潜在的漏洞或后门。</span><br><span class="line"></span><br><span class="line">(1) 2023最全CTF入门指南（建议收藏） - 知乎. https://zhuanlan.zhihu.com/p/631613398.</span><br><span class="line">(2) CTF-Web小白入门篇超详细——了解CTF-Web基本题型及其 .... https://blog.csdn.net/weixin<span class="emphasis">_44953600/article/details/105399366.</span></span><br><span class="line"><span class="emphasis">(3) CTF学习经验分享（Web方向） - CSDN博客. https://blog.csdn.net/Baian_</span>Gu/article/details/120709851.</span><br><span class="line">(4) CTF自学资源总结 - 知乎. https://zhuanlan.zhihu.com/p/404235601.</span><br><span class="line">(5) undefined. https://www.jianshu.com/p/5fd1b624fd7a.</span><br><span class="line">(6) undefined. http://123.206.87.240:8002/web2/.</span><br><span class="line">(7) undefined. http://123.206.87.240:8002/web3/.</span><br><span class="line">(8) undefined. http://123.206.87.240:8002/get/.</span><br><span class="line">(9) undefined. http://123.206.87.240:8002/post/.</span><br><span class="line">(10) undefined. http://123.206.87.240:9001/test/.</span><br><span class="line">(11) undefined. https://blog.csdn.net/weixin<span class="emphasis">_44953600/article/details/107331849.</span></span><br><span class="line"><span class="emphasis">(12) undefined. http://123.206.87.240:9009/hd.php.</span></span><br><span class="line"><span class="emphasis">(13) undefined. http://123.206.87.240:8002/localhost/.</span></span><br><span class="line"><span class="emphasis">(14) undefined. http://123.206.31.85:1003/.</span></span><br><span class="line"><span class="emphasis">(15) undefined. https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=0&amp;id=5068.</span></span><br><span class="line"><span class="emphasis">(16) undefined. https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=5002.</span></span><br><span class="line"><span class="emphasis">(17) undefined. http://123.206.87.240:8002/qiumingshan/.</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"></span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -1787,50 +1739,6 @@ nmap -Pn ip/24
       - yes  始终显示滚动条（即使不需要）。
       - no   从不显示滚动条（即使需要）
 
-# Reverse
-
-## 技巧
-
-- 判断可执行文件位数：Linux的file命令   pied、die查壳
-- 先看字符串 、main等敏感字符和函数
-
-# Crypto
-
-## 知识点
-
-- 文本文件(.txt)以ASCII码形式储存在计算机（0~31位不可打印字符）
-
-- python中ord函数可以将字符转化为ASCII编码值，chr函数反过来
-
-- http协议通过base64编码传输二进制数据
-
-- RC4算法特征：循环次数位256，或存在%256，最后处理数据方式是异或 
-
-# Mobile
-
-# Osint
-
-# Misc
-
-## Forensics
-
-### Volatility
-
-- vol.py -f xxxxxxx imageinfo 用来获取基本信息，确定profile 
-- psxview    用来综合分析进程：偏移量 名字 PID等
-- filescan     查看当时的文件对象：权限，文件名等
-- dumpfile  procdump dumpfiles memdump 指定导出某进程或者offset的数据
-- cmdline cmdscan consoles      提取cmd命令历史信息
-- sockets   sockscan   扫描内存中网络套接字信息
-- connections connscan   扫描网络连接状态
-- hivelist  hivescan   查看注册表信息
-- hivedump   提取hive
-- printkey 提取具体的注册表键值
-- hashdump    提取系统中用户登录的NTLM hash
-
-####  插件：mimiikatz
-
-直接提取明文密码
 
     </div>
     
